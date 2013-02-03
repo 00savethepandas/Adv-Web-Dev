@@ -1,32 +1,63 @@
 5 JavaScript Programs
 
 Assignment: 
-Find 5 examples of JavaScript programs or user interface components like a slide show or calendar date picker. Write why you like them and identify which one you think you could make with your current understanding of programming in general, even if you don’t know how to program in JavaScript.
+Find 5 examples of JavaScript programs or user interface components like a slide show or calendar date picker. 
+Write why you like them and identify which one you think you could make with your current understanding of 
+programming in general, even if you donï¿½t know how to program in JavaScript.
 
 1.	BaroqueMe: http://baroque.me/
 Program: Entire page.
 
-The developer created a beautiful, interactive page that combines music, animation and input. The lines change size with the music as these white balls pass through them in a circular motion to strum them while leaving a faint white trail. The user can mouse over the balls and control the speed of them, vibrating the strings as they pass while also distorting the sound and trails with your input. The other balls on the screen keep rotating to keep the music going if you decide to hold a ball captive under your mouse (just by hovering and not clicking on it). If you hold it down and drag you take control of all the balls on the screen and can drag them as a group, taking full control over the speed of the music. I like it because it’s fun, entertaining, oddly relaxing, and implemented beautifully. 
+The developer created a beautiful, interactive page that combines music, animation and input. The lines change
+size with the music as these white balls pass through them in a circular motion to strum them while leaving a 
+faint white trail. The user can mouse over the balls and control the speed of them, vibrating the strings as they 
+pass while also distorting the sound and trails with your input. The other balls on the screen keep rotating to 
+keep the music going if you decide to hold a ball captive under your mouse (just by hovering and not clicking 
+on it). If you hold it down and drag you take control of all the balls on the screen and can drag them as a group, 
+taking full control over the speed of the music. I like it because itï¿½s fun, entertaining, oddly relaxing, and 
+implemented beautifully. 
 
 2.	Deluge Studios: http://www.delugestudios.com/
 Program: Main slideshow.
 
-The slideshow changes when you click on the checkboxes below it, switching over very quickly between three different slideshows that the user can choose from.  As the slideshow moves, each slide has a hyperlinked text that slides out with the image. I like this particular slideshow because it creates a wonderful way to manage three distinct categories of information, presenting many large graphic images without having to sacrifice simplicity and easy navigability. Most other slideshows typically don’t have multiple slideshows that occupy the same space in the layout. They are usually very linear and the functions are typically limited to jumping to a slide by clicking on a thumbnail, or toggling backwards and forwards through all of the images. Perhaps they’ve created a program that can filter out particular slides depending on user input.
+The slideshow changes when you click on the checkboxes below it, switching over very quickly between three 
+different slideshows that the user can choose from.  As the slideshow moves, each slide has a hyperlinked 
+text that slides out with the image. I like this particular slideshow because it creates a wonderful way to manage 
+three distinct categories of information, presenting many large graphic images without having to sacrifice simplicity 
+and easy navigability. Most other slideshows typically donï¿½t have multiple slideshows that occupy the same space 
+in the layout. They are usually very linear and the functions are typically limited to jumping to a slide by 
+clicking on a thumbnail, or toggling backwards and forwards through all of the images. Perhaps theyï¿½ve created 
+a program that can filter out particular slides depending on user input.
  
 3.	Pixel Slave: http://pixelslave.com/
 Program: Entire index.
 
-This developer modularized the index page into sections that appear one by one. I have mixed feelings about this but I’m still mentioning it because it looks neat and I would like to figure out how to do it. That said, I think that it takes a good graphic designer to keep it from getting too cluttered. Though they have made sure that all of their primary links are displayed first for immediate access, I still feel a small degree of impatience when I visit the site a third time or more. There’s something uncomfortable about just seeing a block and 5 links and clicking on one of them before waiting for the rest of the page to load. This tends to be my thought process when I access the homepage: “What if I’m missing something? I’ll just wait. Nope, everything is just the same as it was before.” I do it every time.
+This developer modularized the index page into sections that appear one by one. I have mixed feelings about this 
+but Iï¿½m still mentioning it because it looks neat and I would like to figure out how to do it. That said, I think 
+that it takes a good graphic designer to keep it from getting too cluttered. Though they have made sure that all of 
+their primary links are displayed first for immediate access, I still feel a small degree of impatience when I visit 
+the site a third time or more. Thereï¿½s something uncomfortable about just seeing a block and 5 links and clicking 
+on one of them before waiting for the rest of the page to load. This tends to be my thought process when I access 
+the homepage: ï¿½What if Iï¿½m missing something? Iï¿½ll just wait. Nope, everything is just the same as it was before.ï¿½ 
+I do it every time.
 
 4.	Nofrks.com : http://www.nofrks.com/#home
 Program: Sliding transition between pages. 
 
-So cool! The site slides about when you navigate between pages. I would love to learn how to do this. I’ve seen something like this before but I think that their site is well designed (graphically speaking). Beyond just the amazing JavaScript effect, I enjoy the way they’ve designed the site to work with it. Though it’s under maintenance, I can already see that they’re utilizing space very well and that navigating through it will be easy and enjoyable.
+So cool! The site slides about when you navigate between pages. I would love to learn how to do this. Iï¿½ve seen 
+something like this before but I think that their site is well designed (graphically speaking). Beyond just the 
+amazing JavaScript effect, I enjoy the way theyï¿½ve designed the site to work with it. Though itï¿½s under maintenance, 
+I can already see that theyï¿½re utilizing space very well and that navigating through it will be easy and enjoyable.
 
 5.	JavaScript Ants: http://www.cs.huji.ac.il/~irush/projects/ants.html
 Program: Ants crawling all over the page, and ant control panel at the bottom.
 
-I found a site that mentioned how to create these ants in JavaScript as a teach-yourself-JavaScript online exercise. I think it’s categorized under intermediate. I really want to make this, and I think that I can make this if I plug away at it for some time. The student who implemented it on the above posted page has already given me a glimpse of the problems that I will likely encounter. Though it’s just and exercise, I can see how laboring through something like that will help me grasp the basics of animation in JavaScript. I also enjoy watching the ants accumulate all over the page. 
+I found a site that mentioned how to create these ants in JavaScript as a teach-yourself-JavaScript online exercise. 
+I think itï¿½s categorized under intermediate. I really want to make this, and I think that I can make this if I plug 
+away at it for some time. The student who implemented it on the above posted page has already given me a glimpse of 
+the problems that I will likely encounter. Though itï¿½s just and exercise, I can see how laboring through something 
+like that will help me grasp the basics of animation in JavaScript. I also enjoy watching the ants accumulate all 
+over the page. 
  
 
 
