@@ -59,5 +59,9 @@ the problems that I will likely encounter. Though it�s just and exercise, I ca
 like that will help me grasp the basics of animation in JavaScript. I also enjoy watching the ants accumulate all 
 over the page. 
  
+6. gitHub 404: https://github.com/00savethepandas/gitFiles
+Program: Parallax images.
+
+I want to know how to do this. 
 
 
