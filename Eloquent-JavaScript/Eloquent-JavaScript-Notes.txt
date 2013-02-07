@@ -1,0 +1,85 @@
+CHAPTER 2: FUNCTIONS
+
+- Function definition: 
+	function square(x) {
+		return x*x;
+	}
+	square(12);
+	144
+
+- square is the name of the function
+- x is the name of its arguement.
+- return x*x is the body of the function.
+- keyword function is always used when creating a new function.
+- when followed by a variable name, the new function will be 
+  stored under this name. 
+- after the name comes a list of arguement names and finally
+  the body of the function. 
+- keyword return followed by an expression is used to determine
+  the value the function returns.
+- when control comes across a return statement, it jumps out of
+  the current function and gives the returned value to the code 
+  that called the function.
+- return statement without an expression after it will cause the 
+  function to return undefined.
+- don't have to worry about the order in which we define and use
+  our functions. They are allowed to call eachother regardless of 
+  which is defined first.
+- local variables vs global variables
+- You can access global variabls inside a function as long as a
+  local variable with the same name hasn't been declared.
+- While a program is running, the computer must remember the
+  context from which the function was called so that it knows 
+  where to continue afterward. The place where this context is 
+  stored is the stack.
+- Everything in JavaScript is a value, including functions.
+- Names of defined functions can be used like normal variabls
+  and their content can be passed around and used in bigger
+  expressions.
+- Call the function in variable a unless that is a false value
+  (like null), in which case it choses b:
+  
+  var a = null
+  function b(){return "B";}
+  (a||b)();
+  
+  "B"
+
+- (a||b)() applies the 'call without arguements' operation
+  represented by () to the expression (a||b). If that
+  expression doesn't produce a value there will be an error.
+- function keyword can be used as an expression:
+
+  var a = null;
+  (a|| function(){return "B";})();
+  
+  "B"
+ 
+- no function named b is defined, the function expression
+  simply creates a function value.
+- upwards Funarg problem:
+	
+	function createFunction(){
+		var local = 100;
+		return function(){return local;};
+	}
+- Local variables no longer on the stack.
+- a function that closes over some local variabls is called a closure.
+- fress you from having to worry about variables still being alive but
+  also allows for some creative use of function values.
+  
+  function makeAdder(amount) {
+	return function(number) {
+		return number + amount;
+	};
+  }
+  
+  var addTwo = makeAdder(2);
+  addTwo(3);
+  
+  5
+
+- JavaScript is nonstrict about the amount of arguements you pass to a
+  function. If you pass too many, it will ignore the other ones.
+- too few returns undefined.
+- Design Patterns
