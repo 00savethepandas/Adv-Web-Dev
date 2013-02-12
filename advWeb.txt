@@ -1,0 +1,35 @@
+research a problem
+develop requirements
+create a structure
+develop a structure
+
+-reduce the possibility of mistakes/problems.
+-good practice to rewrite you programs to see if you can make it more
+efficient.
+- tracers: experiments.
+- minimAlly viable : meets the requirements at the most basic level.
+- first objective: if you run the model and test for the first problem:
+      - efficiency, scalability, *do not repeat yourself. If you think you
+	might need to repeat yourself, then you have a problem.
+1. Don't repeat yourself
+2. Denormalization: if you can make it faster by 
+
+- diff between dynamic and static type
+- dynamic: more chance for logical errors with auto conversions of types.
+- start to pull together an idea for a project.
+- use Google JS Styleguide: http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
+- JS Lint: JavaScript 'validator'
+- Design patterns: A blueprint (algorithm) to programs.
+- makes problem solving easier.
+- Chain of command: Decides what should be done.
+	- series of if or case statements.
+	- parameter comes in, gets checked by a number of if or case statements
+	  to evaluate it and send it to proper processing.
+- 3 different types of design patterns:
+	- Creational Design Patterns
+	- Structural Design Patterns
+	- Behavioral Design Patterns
+- Dynamic programming: 
+- Reduce the number of times you use an if statement for the sake of simplicity
+- Reflection: Allows you to determine the properties of an object by mirroring it.
+- 
