@@ -32,4 +32,21 @@ efficient.
 - Dynamic programming: 
 - Reduce the number of times you use an if statement for the sake of simplicity
 - Reflection: Allows you to determine the properties of an object by mirroring it.
-- 
+- Document object: where all the data is. The DOM is the document, html is the rendered view of the view. 
+- if you change something in the model the view changes.
+- you can manipulate objects in the DOM/ manipulate the DOM.
+
+example: 
+
+var div = document.getElementById('header');
+var a = document.createElement('a');
+
+a.textContent = 'click me'; 
+a.href = 'http://www.google.com';
+div.appendChild(a);
+div.setAttribute("class", "green");
+
+- text content is literal.
+- The DOM is an array of objects.
+- Tags: Everything is either an object or a property of an object
+
