@@ -1,0 +1,126 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div><h1>JavaScript and OOP</h1>
+		<p><a href="http://www.javascriptkit.com/javatutors/oopjs.shtml">JavaScript
+		Tutorials</a>
+		
+		<p><strong>Creating Objects Using new Object()</strong></p>
+		
+		<p>The Simplest way to create objects: (view source)</p>
+		
+		<script type="text/javascript">
+		person = new Object();
+		person.name = "Tiny Tim";
+		person.height = "3 ft"
+		person.run = function() {
+			this.state = "running";
+			this.speed = "3 miles per hour";
+		}
+		</script>
+		<p>This defined the custom object "person" and then added its own properties
+		and methods afterwards.</p>
+		
+		<h3>Creating Objects Using Literal Notation</h3>
+		
+		<p>Another inline way of defining an object is via literal notation. <br />
+		- Considered a more robust way of creating an object quickly.</p>
+		<script type = "text/javascript">
+		timeObject = {
+			property1 : "Hello",
+			property2 : "Mmmm...",
+			property3 : ["mmm", 2, 3, 6, "kkk"],
+			method1 : function() {
+				alert ("Method had been called" + this.property1) 
+				}
+		};
+		
+		timeObject.method1();
+		alert(timeObject.property3[2]) // will yield 3
+		var circle = (x : 0, y : 0, radious : 2} 
+		
+		// nesting
+		
+		var rectangle = {
+			upperLeft : {x : 2, y: 2}
+			lowerRight : {x:4, y: 4}
+		}
+		
+		alert(rectangle.upperLeft.x) //will yield 2
+		
+		</script> 
+		
+		<h2>JavaScript Objects and Arrays</h2>
+		<script type = "text/javascript">
+		var basicObj = {}; // and empty object
+		// {} is a shortcut for "new Object()"
+		
+		basicObj.suprise = "cake!"; // adds the value of cake referenced with suprise?
+		basicObj['suprise']; // returns cake!
+		
+		// Using {} instead of new Object(); is known as Object Literal syntax.
+		
+		var fancyObj = {
+			favoriteFood: "pizza",
+			add: function(a,b) {
+				return a+b;
+			}
+		};
+		
+		fancyObj.add(2,3); // returns 5
+		fancyObj['add'](2,3); // returns the same
+		</script>
+		
+		</div>
+		
+	<script type="text/javascript" src="factoryPattern.js"></script>
+    
+    <script type="text/javascript">
+	function cat(name) {
+		this.name = name;
+		this.talk = function(){
+			alert(this.name + " says meeeow!");
+		}
+	}
+	cat1 = new cat("felix");
+	cat1.talk();
+
+	cat2 = new cat("martin");
+	cat2.talk();
+
+    </script>
+	<script type ="type/javascript">
+	// Using prototype on prebuilt objects
+	// Adding additional functionality to the prebuilt Array object
+	
+	if(!Array.prototype.shift){ // if this method does not exist..
+	
+		Array.prototype.shift = function() {
+			firstElement = this[0];
+			this.reverse();
+			this.length = Math.max(this.length-1.0);
+			this.reverse();
+			return firstElement;
+		}
+	if(!Array.prototype.unshit) { // if this method does not exist..
+		
+		Array.prototype.unshift = function() {
+			this.reverse();
+				for(var i=arguements.length-1; i>=0; i--) {
+					this[this.length]=arguements[i]
+				}
+			this reverse();
+			return this.length
+		}
+	}
+	</script>
+    </body>
+</html>
