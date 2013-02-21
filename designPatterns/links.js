@@ -5,19 +5,26 @@
 
 var someLinks = ["www.kayak.com", "www.google.com", "www.facebook.com"];
 
-function createLinks(mylinks) {
+// factory container
+function linkFactory() {}
+
+linkFactory.prototype.createLinks = function(mylinks) {
 	links = []; //
 	// iterates through the array
-	for(var i=0; i < linkArray.length, i++) {
+	for(var i = 0; i < someLinks.length, i++) {
 	var link = document.getElementById('a');
-	link.href = array[i];
-	link.textContent = i;
-	link.push(link);
+	links.href = someLinks[i];
+	links.textContent = i;
+	links.push(links);
 	}
-     return linkList;
+     return links;
 }
-createLinks(someLinks);	
-console.log(createLinks);	
 
+var lFactory = new linkFactory();
+var list = lFactory.createLinks(someLinks);
+	
+console.log(list);	
+
+//------------------- Factory ----------------------
 
 

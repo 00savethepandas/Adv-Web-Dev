@@ -1,0 +1,109 @@
+<html>
+
+<head>
+
+<title></title>
+
+</head>
+
+<body>
+<p> Pony Generator</p>
+<ul>
+<li>Basics: Hair Length, Color, Wings, Horn, Name, M or F, etc.</li>
+<li>Creational - Factory: Make pony objects</li>
+<li>Structural - Decorator: unicorn, pegasus, pegacorn</li>
+<li>Behavioral - Iterator: Pony object collection in an array.<li>
+</ul>
+
+<script type="text/javascript">
+
+// ---------------- What is this pony? ----------------------------------------
+// STRUCTURAL: DECORATOR
+// Create a constructor and decorator for Pegasus, Unicorn and Pegacorn:
+// Basic Pony (start with):
+function Pony(ponyParts) {
+    this.pType = ponyParts.pType || "pony";
+    this.color = ponyParts.color || "pink";
+    this.gender = ponyParts.gender || "female";
+    this.markings = ponyParts.markings || "has spots";
+    this.name = ponyParts.name || "Baby Mint Stepper";
+    this.maneColor = ponyParts.maneColor || "purple mane";
+}
+
+// Pegasus:
+function Pegasus(ponyParts) { 
+    this.wingColor = ponyParts.wingColor || "white wings";
+}
+
+// Unicorn:
+function Unicorn(ponyParts) {
+    this.hornSize = ponyParts.hornSize || "average horn size"
+}
+
+function Pegacorn(ponyParts){
+    this.wingColor = ponyParts.wingColor || "white";
+    this.hornSize = ponyParts.hornsize || "medium sized horn";
+}
+
+//-------------------- FACTORY ------------------------------------------------
+// CREATIONAL: FACTORY PATTERN
+
+// Warehouse space for ponyFactory.
+function ponyFactory(){}
+
+// Generic pony:
+ponyFactory.prototype.ponyClass = Pony;
+
+// Make the pony with these pony parts: 
+ponyFactory.prototype.makePony = function(ponyParts) {
+    // Convert to switch statement:
+    if(ponyParts.pType === "pegacorn" || "Pegacorn") {
+        this.ponyClass = Pegacorn;
+        } else {
+            if(ponyParts.pType === "pegasus" || "Pegasus") {
+                this.ponyClass = Pegasus;
+                } else {
+                    if(ponyParts.pType === "unicorn" || "Unicorn") {
+                        this.ponyClass = Unicorn;
+                        } else {
+                            this.ponyClass = "Pony";
+                            }
+                        }
+            }
+             return new this.ponyClass(ponyParts);
+    };               
+    // incorporate decorator pattern?
+    // add to pony array.
+    
+// ----------------- START MAKING PONIES -------------------------------------------
+
+var pFactory = new ponyFactory();
+
+var aPony = pFactory.makePony( {
+    pType: "Pony",
+    gender: "Female",
+    name: "SkyLoaf",
+});    
+// Test:
+console.log(aPony instanceof Pony);
+console.log(aPony);
+
+//----------------- PONY COLLECTION -------------------------------------------
+// Collect the ponies in a master array, iterate through the collection, 
+// sort them into categories by pony type.
+// ITERATOR: BEHAVIORAL
+/*
+var ponyCollection = [];
+
+function sortPonies (ponyCollection) {
+    ponies = [];
+    unicorns = [];
+    pegasi = [];
+    pegacorns = [];
+
+};
+*/
+</script>
+</body>
+
+</html>
