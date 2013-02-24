@@ -1,0 +1,304 @@
+<html>
+
+<head>
+
+<title></title>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style type = "text/css">
+body {
+	background-color:  ;
+	font-family: 'Roboto', sans-serif;
+	color: #fff;
+}
+hr {border-color: #cb9199;}
+
+h1, h2, h3, h4 { 
+	font-family: 'Trocchi', serif;
+	font-weight: normal;
+	color: #fff6e9;
+	text-decoration: underline;
+}
+
+h1, h2 {
+	text-decoration: none;
+	color: white;
+}
+
+#contentWrapper {
+	width: 85%;
+	height: auto;
+	margin: auto;
+}	
+#content {
+	width: 80%;
+	padding: 5em;
+	min-height: 25%;
+	margin: auto;
+	background-color: #88ada3 ;
+}
+.darkBlue {
+		color: #102131;
+}
+</style>
+
+</head>
+
+<body>
+<script type="text/javascript" id="PonyGenerator">
+// ---------------------- PONY CONSTRUCTOR -----------------------------------
+// Constructor: Basic Pony (start with):
+function aPony(ponyType){
+	this.pType = ponyType;
+	this.color = "white";
+	this.markings = "spots";
+	this.maneColor = "white";
+	this.eyeColor = "black";
+	this.height = "6 feet";
+	this.bodyType = "trim";
+	this.tail = "long and silky";
+	this.hooves= "black";
+	ponyCollector.push(ponyType);
+}
+
+//----------------------- PONY COLLECTOR -------------------------------------
+
+var ponyCollector = []; // Array to collect all ponies created.
+
+//----------------------- PONY DECORATOR -------------------------------------
+// DESIGN: Decorator
+// DECORATOR: All types share the pony constructor to 
+// create new objects
+var ponyDecorator = function Pony(){
+    var Pony = new aPony("Pony");
+	this.name = "Spotty";
+    console.log(Pony);
+    return Pony;
+};
+
+var pegasusDecorator = function Pegasus(){
+    var Pegasus = new aPony("Pegasus");
+        Pegasus.setWings = "White";
+		Pegasus.markings = "Rainbow";
+		Pegasus.hooves = "Gold";
+        console.log(Pegasus);
+        return Pegasus;
+};
+
+var unicornDecorator = function Unicorn(){
+    var Unicorn = new aPony("Unicorn");
+        Unicorn.setHorn = "Bowed";
+		Unicorn.markings = "Stars";
+        console.log(Unicorn);
+        return Unicorn;
+};
+
+var pegacornDecorator = function Pegacorn(){
+    var Pegacorn = new aPony("Pegacorn");
+        Pegacorn.setWings = "Blush";
+        Pegacorn.setHorn = "Sparkling";
+        console.log(Pegacorn);
+        return Pegacorn;
+};
+//--------------------- MAKING PONIES ------------------------------------
+
+var pegasusOne = pegasusDecorator('Pegasus');
+var ponyOne = ponyDecorator('Pony');
+var unicornOne = unicornDecorator('Unicorn');
+var ponyTwo = ponyDecorator('Pony');
+var pegacornOne = pegacornDecorator('Pegacorn');
+var unicornTwo = unicornDecorator('Unicorn');
+var pegasusTwo = pegasusDecorator('Pegasus');
+var pegacornTwo = pegacornDecorator('Pegacorn');
+var pegacornThree = pegacornDecorator('Pegacorn');
+
+console.log(ponyCollector);
+
+//---------------------- PONY TYPE COUNT ----------------------------------
+var typeCount = [];
+
+var ponyCount = 0;
+var unicornCount = 0;
+var pegasusCount = 0;
+var pegacornCount = 0;
+for(var i = 0; i < ponyCollector.length; i++) {	
+	if (ponyCollector[i] == 'Pony'){
+		ponyCount += 1;} else if (ponyCollector[i] == 'Pegasus')
+			{ pegasusCount =+1; } else if (ponyCollector[i] == 'Unicorn')
+				{ unicornCount +=1; } else { pegacornCount +=1;};
+};
+	typeCount.push("Ponies: " + ponyCount);
+	typeCount.push("Unicorns: " + unicornCount);
+	typeCount.push("Pegasi: " + pegasusCount);
+	typeCount.push("Pegacorns: " + pegacornCount);
+	
+console.log(typeCount);
+
+//--------------------- OUTPUT INTO HTML --------------------------------
+
+collector = ponyCollector.toString();
+counter = typeCount.toString();
+
+//--------------------- END OF SCRIPT -----------------------------------
+
+</script>
+<div id ="contentWapper">
+<div id ="content">
+<h1>IS 217 Homework: Design Patterns</h1>
+<hr />
+<h2>The Assignment:</h2>
+<p>Your homework is to select one creational, one structural, and one behavioral 
+design pattern and implement a demonstration of the pattern interacting with 
+another pattern.   You are to implement these design patterns in JavaScript and 
+write an explanation of what pattern you are using, why, and how the three
+patterns are interacting.</p>
+
+<p>Your homework submission should include:</p>
+<ol>
+	<li>An explanation of what a design pattern is</li>
+	<li>An explanation of each respective pattern in terms of what it is and why 
+	it is used.</li>
+	<li>An explanation of why and how the three patterns that you have selected 
+	work together.</li>
+	<li>Your submission should print output to the screen</li>
+</ol>	
+
+<p>You will submit your homework by posting a link to your homework in the Moodle 
+assignment.</p>
+
+<p>You can use this as a reference:</p>
+<a href = "http://addyosmani.com/resources/essentialjsdesignpatterns/book/" target = "blank_">
+Learning JavaScript Design Patterns</a>
+<p><br /></p>
+<hr />
+<h2>Answers: </h2>
+<p span class ="darkBlue">What is a design pattern? </p>
+<p> Design patterns are reusable solutions to common problems in a given context in software design.
+They act as templates to solving common programming issues in a number of different situations and are not 
+complete, finished designs.</p>
+
+<h3>Creational, Structural and Behavioral Patterns</h3>
+<p span class ="darkBlue">a. Creational Pattern: Constructor</p>
+<p>Creational patterns deal with object creation by controlling how the programs
+create objects. Creating objects from a basic approach can sometimes result in creating unnecessary
+complexity in a project or create design issues. Creational patterns help to control the creation 
+process.</p>
+<p>The creational pattern used in this program is a constructor. Object constructors create 
+specific types of objects by preparing the object for use and accepting arguements that the
+constructor can use to set the values of its member properties and methods when the object 
+is created. The constructor in the Pony Generator program defines all of the shared
+characteristics between all of the pony objects that will be created (tail, mane, height, etc.).
+</p>
+
+<p span class="darkBlue">Constructor: Pony Basics</p>
+<p>
+function aPony(ponyType) {<br />
+	this.pType = ponyType;<br />
+	this.color = "white";<br />
+	this.markings = "spots";<br />
+	this.maneColor = "white";<br />
+	this.eyeColor = "black";<br />
+	this.height = "6 feet";<br />
+	this.bodyType = "trim";<br />
+	this.tail = "long and silky";<br />
+	this.hooves= "black";<br />
+	ponyCollector.push(ponyType);<br />
+}
+</p>
+
+
+<p span class ="darkBlue">b. Structural Design Patterns: Decorator</p>
+<p>Structural patterns deal with object composition and focus on relationships between objects.
+ Structural patterns help ensure that if one part of the system changes, the rest of the structure 
+ doesn't have to change. They can help structure objects and their relationships, manage children
+objects, add functionality to an object, and help adapt between interfaces. </p>
+
+<p> The structural pattern used for the Pony Generator program is the Decorator Pattern.
+A Decorator Pattern can extend an objects functionality without affecting the behavior of other
+objects of the same class. In programs that need to create a large number of distinct objects, 
+the decorator pattern resuses code so that it doesn't have to be repeated when constructing many
+objects that share much of the same properties.<p>
+<p>In my Pony Generator program, I've used the decorator pattern to 'decorate' the basic properties
+of a pony established in the constructor by adding all the distinct properties of the different 
+pony-like creatures (ex. Unicorns have horns, pegasi have wings, pegacorns have both wings 
+and a horn). (See copy of my decorator below). Once these objects are created, each instance is
+stored in an array.</p>
+
+<p span class="darkBlue">Output of all objects in the Pony Collector Array:</p> 
+<script id="PonyGenerator" type="text/javascript">
+document.write(String(collector));
+</script>
+<p>&nbsp;</p>
+
+<h3>What the Pony Generator decorator pattern looks like: </h3>
+<p span class="darkBlue">Pony: Makes a pony:</p>
+var ponyDecorator = function Pony() {<br />
+    var Pony = new aPony("Pony");<br />
+	this.name = "Spotty";<br />
+    console.log(Pony);<br />
+    return Pony;<br />
+};
+<p>
+
+<p span class = "darkBlue">Pegasus: adds in wings and changes a couple of properties in the Pony:</p>
+<p>
+var pegasusDecorator = function Pegasus() {<br />
+    var Pegasus = new aPony("Pegasus");<br />
+        Pegasus.setWings = "White";<br />
+		Pegasus.markings = "Rainbow";<br />
+		Pegasus.hooves = "Gold";<br />
+        console.log(Pegasus);<br />
+        return Pegasus;<br />
+};
+</p>
+
+<p span class ="darkBlue">Unicorn: adds in a horn:</p>
+<p>
+var unicornDecorator = function Unicorn() {<br />
+    var Unicorn = new aPony("Unicorn");<br />
+        Unicorn.setHorn = "Bowed";<br />
+		Unicorn.markings = "Stars";<br />
+        console.log(Unicorn);<br />
+        return Unicorn;<br />
+};
+</p>
+
+<p span class="darkBlue">Pegacorn: adds wings and a horn:</p>
+var pegacornDecorator = function Pegacorn() {<br />
+    var Pegacorn = new aPony("Pegacorn");<br />
+        Pegacorn.setWings = "Blush";<br />
+        Pegacorn.setHorn = "Sparkling";<br />
+        console.log(Pegacorn);<br />
+        return Pegacorn;<br />
+};
+</p>
+
+
+<p span class ="darkBlue">c. Behavioral: Iterator</p>
+<p>Behavioral Patterns explain how objects interact/communicate with eachother in order to make
+something happen, and how these tasks are delegated amoung the different objects. Behavioral
+patterns mostly describe a process or a flow.</p>
+
+<p>In the Pony Generator program, I've used an iterator. An iterator pattern provides a means for 
+the elements in an object collection to be accessed in sequence without knowledge of its structure.
+You can use an iterator to traverse lists, trees, and other strutures. The iterator used in the
+program traverses through an array that collected all of the ponies created, counts the instances
+of each type. The results are then pushed into another array.<p>
+
+<h3>Pony Array Output: All Object Instances and Final Count</h3>
+<p span class="darkBlue">Output of the Pony Collector:</p> 
+<script id="PonyGenerator" type="text/javascript">
+document.write(String(collector));
+</script>
+
+<p span class="darkBlue">Output of Pony Count Array</p>
+<script id="PonyGenerator" type="text/javascript">
+document.write(String(counter));
+</script>
+
+</div> <!-- End content -->
+</div> <!-- End contentWrapper -->
+</body>
+
+</html>
