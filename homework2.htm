@@ -8,101 +8,101 @@
 
 <body>
 <p> Pony Generator</p>
-<ul>
-<li>Basics: Hair Length, Color, Wings, Horn, Name, M or F, etc.</li>
-<li>Creational - Factory: Make pony objects</li>
-<li>Structural - Decorator: unicorn, pegasus, pegacorn</li>
-<li>Behavioral - Iterator: Pony object collection in an array.<li>
-</ul>
+
 
 <script type="text/javascript">
 
-// ---------------- What is this pony? ----------------------------------------
-// STRUCTURAL: DECORATOR
-// Create a constructor and decorator for Pegasus, Unicorn and Pegacorn:
-// Basic Pony (start with):
-function Pony(ponyParts) {
-    this.pType = ponyParts.pType || "pony";
-    this.color = ponyParts.color || "pink";
-    this.gender = ponyParts.gender || "female";
-    this.markings = ponyParts.markings || "has spots";
-    this.name = ponyParts.name || "Baby Mint Stepper";
-    this.maneColor = ponyParts.maneColor || "purple mane";
+// ---------------------- PONY CONSTRUCTOR -----------------------------------
+// Constructor: Basic Pony (start with):
+function aPony(ponyType){
+	this.pType = ponyType;
+	this.color = "white";
+	this.markings = "spots";
+	this.maneColor = "white";
+	this.eyeColor = "black";
+	this.height = "6 feet";
+	this.bodyType = "trim";
 }
 
-// Pegasus:
-function Pegasus(ponyParts) { 
-    this.wingColor = ponyParts.wingColor || "white wings";
-}
+//----------------------- PONY COLLECTOR -------------------------------------
 
-// Unicorn:
-function Unicorn(ponyParts) {
-    this.hornSize = ponyParts.hornSize || "average horn size"
-}
+var ponyCollector = []; // Array to collect all ponies created.
 
-function Pegacorn(ponyParts){
-    this.wingColor = ponyParts.wingColor || "white";
-    this.hornSize = ponyParts.hornsize || "medium sized horn";
-}
-
-//-------------------- FACTORY ------------------------------------------------
-// CREATIONAL: FACTORY PATTERN
-
-// Warehouse space for ponyFactory.
-function ponyFactory(){}
-
-// Generic pony:
-ponyFactory.prototype.ponyClass = Pony;
-
-// Make the pony with these pony parts: 
-ponyFactory.prototype.makePony = function(ponyParts) {
-    // Convert to switch statement:
-    if(ponyParts.pType === "pegacorn" || "Pegacorn") {
-        this.ponyClass = Pegacorn;
-        } else {
-            if(ponyParts.pType === "pegasus" || "Pegasus") {
-                this.ponyClass = Pegasus;
-                } else {
-                    if(ponyParts.pType === "unicorn" || "Unicorn") {
-                        this.ponyClass = Unicorn;
-                        } else {
-                            this.ponyClass = "Pony";
-                            }
-                        }
-            }
-             return new this.ponyClass(ponyParts);
-    };               
-    // incorporate decorator pattern?
-    // add to pony array.
-    
-// ----------------- START MAKING PONIES -------------------------------------------
-
-var pFactory = new ponyFactory();
-
-var aPony = pFactory.makePony( {
-    pType: "Pony",
-    gender: "Female",
-    name: "SkyLoaf",
-});    
-// Test:
-console.log(aPony instanceof Pony);
-console.log(aPony);
-
-//----------------- PONY COLLECTION -------------------------------------------
-// Collect the ponies in a master array, iterate through the collection, 
-// sort them into categories by pony type.
-// ITERATOR: BEHAVIORAL
-/*
-var ponyCollection = [];
-
-function sortPonies (ponyCollection) {
-    ponies = [];
-    unicorns = [];
-    pegasi = [];
-    pegacorns = [];
-
+//----------------------- PONY DECORATOR -------------------------------------
+// DESIGN: Decorator
+// DECORATOR: All types share the pony constructor to 
+// create new objects
+var ponyFactory = function Pony(){
+    var Pony = new aPony("Pony");
+	this.name = "Spotty";
+    ponyCollector.push('Pony');
+    console.log('Pony');
+    return Pony;
 };
-*/
+
+var pegasusFactory = function Pegasus(){
+    var Pegasus = new aPony("Pegasus");
+        Pegasus.setWings = "White";
+		Pegasus.markings = "Rainbow";
+		Pegasus.hooves = "Gold";
+        ponyCollector.push('Pegasus');
+        console.log(Pegasus);
+        return Pegasus;
+};
+
+var unicornFactory = function Unicorn(){
+    var Unicorn = new aPony("Unicorn");
+        Unicorn.setHorn = "Bowed";
+		Unicorn.markings = "Stars";
+        ponyCollector.push('Unicorn');
+        console.log(Unicorn);
+        return Unicorn;
+};
+
+var pegacornFactory = function Pegacorn(){
+    var Pegacorn = new aPony("Pegacorn");
+        Pegacorn.setWings = "Blush";
+        Pegacorn.setHorn = "Sparkling";
+        ponyCollector.push('Pegacorn');
+        console.log(Pegacorn);
+        return Pegacorn;
+};
+//--------------------- MAKING PONIES ------------------------------------
+
+var pegasusOne = pegasusFactory('Pegasus', 'Peggers', 'blush');
+var ponyOne = ponyFactory('Pony');
+var unicornOne = unicornFactory('Unicorn');
+var ponyTwo = ponyFactory('Pony');
+var pegacornOne = pegacornFactory('Pegacorn');
+var ponyThree = ponyFactory('Pony');
+var unicornTwo = unicornFactory('Unicorn');
+var pegasusOne = pegasusFactory('Pegasus');
+var pegacornTwo = pegacornFactory('Pegacorn');
+var pegacornThree = pegacornFactory('Pegacorn');
+var pegacornFour = pegacornFactory('Pegacorn');
+
+
+console.log(ponyCollector);
+
+//---------------------- PONY TYPE COUNT ----------------------------------
+var typeCount = [];
+
+var ponyCount = 0;
+var unicornCount = 0;
+var pegasusCount = 0;
+var pegacornCount = 0;
+for(var i = 0; i < ponyCollector.length; i++) {	
+	if (ponyCollector[i] == 'Pony'){
+		ponyCount += 1;} else if (ponyCollector[i] == 'Pegasus')
+			{ pegasusCount =+1; } else if (ponyCollector[i] == 'Unicorn')
+				{ unicornCount +=1; } else { pegacornCount +=1;};
+};
+	typeCount.push("Ponies: " + ponyCount);
+	typeCount.push("Unicorns: " + unicornCount);
+	typeCount.push("Pegasi: " + pegasusCount);
+	typeCount.push("Pegacorns: " + pegacornCount);
+	
+console.log(typeCount);
 </script>
 </body>
 

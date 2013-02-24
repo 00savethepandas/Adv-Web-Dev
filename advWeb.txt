@@ -50,3 +50,72 @@ div.setAttribute("class", "green");
 - The DOM is an array of objects.
 - Tags: Everything is either an object or a property of an object
 
+Duck Punching: Adding a method or property to an exisiting reserved word in
+a language (array, function, etc).
+
+- understand implement keyword.
+- prototype is an object that acts like a class.
+- typeof: test type of object.
+- flyweight vs decorator: flyweight uses the same base to dynamically 
+create objects, decorator adds to an instantiated object. 
+- 3js: 3d library that's javascript
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
