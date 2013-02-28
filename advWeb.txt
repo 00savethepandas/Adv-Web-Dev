@@ -59,13 +59,35 @@ a language (array, function, etc).
 - flyweight vs decorator: flyweight uses the same base to dynamically 
 create objects, decorator adds to an instantiated object. 
 - 3js: 3d library that's javascript
+
+Course progression:
+1. Event binding
+2. Exception handling
+3. Unit testing
+4. JavaScript Libraries
+	- jQuery
+	- backbone js
+	- 3js
+- Next 4 weeks: Project
 - 
 
-
-
-
-
-
+3JS
+- Event binding: Telling the observer what to look for.
+- Call back: if statement without an if (this event is going to happen, run this function)
+- functions that are being passed when an event happens.
+- call backs can end up in a que or in a cache when events are happening too fast to be processed.
+- call back stack is like a cache.
+- jQuery on() method: 
+- cross compatibility issues with javascript event binding. use jQuery.
+- http://api.jquery.com/on/
+- event binding .on()
+- $("p").on("click", function(){
+	alert($(this).text());
+-aerotwist.com: ThreeJS
+- HTML5 canvas tag
+- canvas allows the drawing of 2d and 3d, streaming, etc.
+- "portal into the hardward of your computer"
+- threejs tetris tutorial
 
 
 
