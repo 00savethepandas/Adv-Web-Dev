@@ -1,0 +1,57 @@
+HTML CANVAS ELEMENT
+
+<canvas id="example" width="200" height="200">
+This text is displayed if your browser does not support HTML5 Canvas.
+</canvas>
+
+Using JavaScript, you can draw on the canvas:
+var example = document.getElementById('example');
+var context = example.getContext('2d');
+context.fillStyle = 'red';
+context.fillRect(30, 30, 50, 50);
+
+Usage
+
+The Three.js library is a single JavaScript file. It can included within a web page by linking to a local or remote copy.
+<script src="js/three.min.js"></script>
+The following code creates a scene, adds a camera and a cube to the scene, creates a <canvas> renderer and adds its viewport in the document.body element. Once loaded, the cube rotates about its X- and Y-axis.
+<script>
+ 
+    var camera, scene, renderer,
+    geometry, material, mesh;
+ 
+    init();
+    animate();
+ 
+    function init() {
+        scene = new THREE.Scene();
+ 
+        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+        camera.position.z = 1000;
+ 
+        geometry = new THREE.CubeGeometry( 200, 200, 200 );
+        material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+ 
+        mesh = new THREE.Mesh( geometry, material );
+        scene.add( mesh );
+ 
+        renderer = new THREE.CanvasRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+ 
+        document.body.appendChild( renderer.domElement );
+    }
+ 
+    function animate() {
+        // note: three.js includes requestAnimationFrame shim
+        requestAnimationFrame( animate );
+        render();
+    }
+ 
+    function render() {
+        mesh.rotation.x += 0.01;
+        mesh.rotation.y += 0.02;
+ 
+        renderer.render( scene, camera );
+    }
+ 
+</script>

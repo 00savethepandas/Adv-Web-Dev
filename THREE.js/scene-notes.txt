@@ -1,0 +1,50 @@
+THREE JS: http://mrdoob.github.com/three.js/docs/56/#Manual/Introduction/Creating_a_scene
+
+- Three.js is a library that makes WebGL - 3D in a browser easy. 
+
+HTML Template:
+
+<html>
+	<head>
+		<title>My first Three.js app</title>
+		<style>canvas { width: 100%; height: 100% }</style>
+	</head>
+	<body>
+		<script src="https://raw.github.com/mrdoob/three.js/master/build/three.js"></script>
+		<script>
+			// Our Javascript will go here.
+		</script>
+	</body>
+</html>
+
+CREATE A SCENE:
+- To display anything with Three.js, you need 3 things:
+	1. a scene
+	2. a camera
+	3. a render
+- you need a renderer to render the scene with the camera.
+
+Code:
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innderWidth, window.innderHeight );
+document.body.appendChild( renderer.domElement);
+
+- Sets up the scene, camera, and renderer.
+- Three different cameras in Three.js.
+- One camera is the PerspectiveCamera.
+	a. the first attribute is the field of view.
+	b. the second is the aspect ratio. 
+- almost always want to use the width of the element divided by the height or you get the same result when you play old movies on widescreen tv.
+- the image wiil appeared distorted.
+- next two attributes: near and far clipping plane. Objects further away from the camera than the value of 'far' or closer than 'near' won't be rendered. 
+- Renderer: uses the WebGLRenderer. WebGL has several other renderers that are often used as fallbacks for older browsers.
+- after creating the renderer instance, you need to set the size at whih you want it to render your application.
+- Best to use the width and height of the area you want to fill with the game.
+- this ex uses 100% of width and height.
+- you can set smaller sizes using 'setSize' window.innerWidth/2 and window.innerHeight/2 for half the resolution.
+- won't make the game fill only half the window but wull make it look a little blurry and scaled up.
+- 

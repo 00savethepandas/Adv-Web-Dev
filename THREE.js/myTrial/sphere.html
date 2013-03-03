@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>My first Three.js app</title>
+		<style>canvas { width: 100%; height: 100% }</style>
+	</head>
+	<body>
+		<script src="js/three.min.js"></script>
+		<script>
+		
+		
+// --------------- 		CREATE THE SCENE -----------------
+			// setup the scene
+			var scene = new THREE.Scene();
+			
+			// setup the camera
+			var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1,1000);
+			
+			// setup the renderer
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight);
+			document.body.appendChild(renderer.domElement);
+			
+// -------------- MAKE THE shape ------------------------------------------
+
+			// creates a shape with TetrahedronGeometry object containing all 
+			// points(vertices) and fill (faces) of the tetrahedron.
+			var geometry = new  THREE.TetrahedronGeometry(2,3); 
+			
+			// 3js material to cover it = MeshBasicMaterial
+			// All materials take an object of properties which will be
+			// applied to them. Only supplied a color attribute of 
+			// 0x00ff00
+			var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+			
+			// Next you need a 'Mesh'. This is an object that takes a
+			// geometry and applies a material to it, which we then can 
+			// insert to our scene and move around freely.
+			var shape = new THREE.Mesh(geometry, material);
+			
+			// by default we call scene.add(), the thing we add will be 
+			// added to the coordinates (0,0,0). This would cause both the
+			// camera and the shape to be inside eachother.
+			// To avoid this, we move the camera out a bit. 
+			scene.add(shape);
+			camera.position.z = 5;
+// -------------------- RENDER THE SCENE --------------------------------
+			// create a loop that causes the renderer to draw the scene
+			// 60 times per second. 
+			// requestAnimationFrame pauses when the user navigates to
+			// another browser tab, not wasting their processing power
+			// and battery life.
+			function render() {
+				requestAnimationFrame(render);
+// ------------------- ROTATE THE BOX -----------------------------------
+				// This will run every frame (60 times per second) and give it
+				// a rotation animation. 
+				// Anything that you want to move or change while the game
+				// or app is running has to go through the render loop.
+				
+				// shape.rotation.x += 0.01;
+				shape.rotation.y += 0.01;
+				
+				// renders the scene and camera
+				renderer.render(scene,camera);
+			}
+			render();
+				
+
+
+		</script>
+	</body>
+</html>
