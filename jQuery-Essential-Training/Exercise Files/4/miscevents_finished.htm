@@ -4,10 +4,12 @@
     <title>Miscellaneous jQuery Events</title>
     <script type="text/javascript" src="../jquery-1.3.2.js"></script>
     <script type="text/javascript">
-        $(function() {	// onload handler
-			$("div").one("click", function(evt){
-					$(this).css({background: "red", cursor: "auto"});
-			});
+        $(function() {
+            $("div").one("click", function() {
+                $(this).css({ background: "red",
+                    cursor: "auto"
+                });
+            });
         });
     </script>
     <style type="text/css">

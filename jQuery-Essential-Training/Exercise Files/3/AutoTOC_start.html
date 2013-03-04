@@ -7,23 +7,24 @@
         $("document").ready(function() {
             buildBookmarks('h3', 'header');
         });
-
         function buildBookmarks(strWhichTag, sBookMarkNode) {
-            var i;
-            var cAnchorCount = 0;
-
-            // create the list that will hold the bookmark links
-            var oList = $("<ul id='bookmarksList'>");
-
-            // for each one of the header tags, create a new named anchor and insert it into
-            // the header tag. Then add a new link to the list that points to the named anchor
-            $("div:not([id=header]) " + strWhichTag).each(function() {
-                $(this).html("<a name='bookmark" + cAnchorCount + "'></a>" + $(this).html());
-                oList.append($("<li><a href='#bookmark" + cAnchorCount++ + "'> " + $(this).text() + "</a></li>"));
-            });
-
-            // now find the ID of the bookmark container and append it
-            $("#" + sBookMarkNode).append(oList);
+			// anchor count will create the unique named anchors
+		
+			var anchorCount = 0;
+			var oList = $("<ul id = 'bookmarksList'>");
+			// grab all divs except header and target the strWhichTag (h3)
+			// traverse with each (iterate over each one that you find)
+			$("div:not([id=header])" + strWhichTag).each(function(){
+				// name will be bookmark + anchor number
+				$(this).html("<a name = 'bookmark" + anchorCount + "'></a>" + $(this).html()); 
+				// adds this to the existing html
+				
+				// in the oList, append li href = anchorCount++ (increment by 1)
+				// and keep text in the exisiting html
+				oList.append($("<li><a href = '#bookmark" + anchorCount++ + "'>" + $(this).text() + "</a></li>"));
+				});
+				// put list of links into the div
+				$("#" + sBookMarkNode).append(oList);
         }
     </script>
 </head>
