@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<link href="js/script.js" type="text/javascript" />
+<link href="js/jquery.js" type="text/javascript" />
+</head>
+<body>
+    <h1>A fade-transition Backbone carousel</h1>
+    
+    <p>Define a container, and place carousel items inside, each with a
+    class of <code>carousel-item</code>. Clicks on anything with class <code>carousel-prev</code> and
+    <code>carousel-next</code> will advance the carousel. Pass a selector for the top-level container
+    into the constructor as <code>el</code>.</p>
+    <p>There is minimal style here. It's only important to hide all of the <code>carousel-item</code>s and allow the Backbone view to manage their visibility.</p>
+    <p>The carousel can be set to auto-advance, by calling <code>startRotating()</code>. Or the
+      user can be in control using the <code>toggle</code> button.</p>
+ 
+    <div id="my-carousel">
+      <button class="toggle">Start</button>
+      <div class="carousel-item">
+        <button class="carousel-prev">I</button>
+        Item One
+        <button class="carousel-next">DON'T</button>
+      </div>
+      <div class="carousel-item">
+        <button class="carousel-prev">KNOW</button>
+        Item Two
+        <button class="carousel-next">WHAT</button>
+      </div>
+      <div class="carousel-item">
+        <button class="carousel-prev">THE</button>
+        Item Three
+        <button class="carousel-next">FUCK I'M DOING</button>
+      </div>
+    </div>
+ 
+    <script src="js/jquery.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/backbone-min.js"></script>
+ 
+  </body>
+</html>
+</body>
+</html>
+
