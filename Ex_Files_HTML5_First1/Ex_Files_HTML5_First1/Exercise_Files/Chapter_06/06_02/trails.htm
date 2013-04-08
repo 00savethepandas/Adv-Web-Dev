@@ -3,12 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Explore California Trail Guide</title>
+<!--update based on html5-->
 <link href="_css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+function drawMap() {  
+    var elvPlot = document.getElementById('myMap').getContext('2d');  
+	var img = new Image();  
+	img.onload = function(){  
+	elvPlot.drawImage(img,0,0);
+	}
+	img.src = '_images/northridge_map.jpg';  
+} 
+</script>
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 </head>
-<body>
+<body onload="drawMap();">
 <div id="wrapper">
 <header id="mainHeader">
 <hgroup>
@@ -63,7 +74,9 @@
     <p>While there are no steep drops or bombs on this trail, there are several areas of the trail that extend over bare rock. The paths are marked, but there are canyon areas that you should be aware of. Before starting any downhill section make sure you know the path!</p>
     <h2>Surface</h2>
     <p>Most of the lower trails are firebreak roads or other, wide access roads. As you climb, trails become single track and a bit more technical. There are patches of bare rock and loose rock is common on most downhill sections. If you choose to ascend via the Killabase Road trail head, the first quarter mile is paved path.</p>
-   <img src="_images/canvas_mockup.jpg" />
+    <canvas id="myMap" width="600" height="695">
+Your browser does not support canvas. Please upgrade to the latest version of Chrome, Firefox, or Safari.
+</canvas>
     </article>
   </section>
   <aside id="trailNews">
