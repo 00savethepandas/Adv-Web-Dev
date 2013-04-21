@@ -1,0 +1,210 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div><h1>JavaScript and OOP: Objects literals, Arrays, etc.</h1>
+		<p><a href="http://www.javascriptkit.com/javatutors/oopjs.shtml">JavaScript
+		Tutorials</a>
+		
+		<h2>Creating Objects Using new Object()</h2>
+		
+		<p>The Simplest way to create objects: (view source)</p>
+		
+		<script type="text/javascript">
+		person = new Object();
+		person.name = "Tiny Tim";
+		person.height = "3 ft"
+		person.run = function() {
+			this.state = "running";
+			this.speed = "3 miles per hour";
+		}
+		</script>
+		<p>This defined the custom object "person" and then added its own properties
+		and methods afterwards.</p>
+		
+		<h2>Creating Objects Using Literal Notation</h2>
+		
+		<p>Another inline way of defining an object is via literal notation. <br />
+		- Considered a more robust way of creating an object quickly.</p>
+		<script type = "text/javascript">
+		timeObject = {
+			property1 : "Hello",
+			property2 : "Mmmm...",
+			property3 : ["mmm", 2, 3, 6, "kkk"],
+			method1 : function() {
+				alert ("Method had been called" + this.property1) 
+				}
+		};
+		
+		timeObject.method1();
+		alert(timeObject.property3[2]) // will yield 3
+		var circle = (x : 0, y : 0, radious : 2} 
+		
+		// nesting
+		
+		var rectangle = {
+			upperLeft : {x : 2, y: 2}
+			lowerRight : {x:4, y: 4}
+		}
+		
+		alert(rectangle.upperLeft.x) //will yield 2
+		
+		</script> 
+		
+		<h2>JavaScript Objects and Arrays</h2>
+		<script type = "text/javascript">
+		var basicObj = {}; // and empty object
+		// {} is a shortcut for "new Object()"
+		
+		basicObj.suprise = "cake!"; // adds the value of cake referenced with suprise?
+		basicObj['suprise']; // returns cake!
+		
+		// Using {} instead of new Object(); is known as Object Literal syntax.
+		
+		var fancyObj = {
+			favoriteFood: "pizza",
+			add: function(a,b) {
+				return a+b;
+			}
+		};
+		
+		fancyObj.add(2,3); // returns 5
+		fancyObj['add'](2,3); // returns the same
+		
+		Number.prototype.addTo = function(x) {
+			return this + x;
+		}
+		
+		(8).addTo(6);
+		
+		var eight = 8;
+		eight.addTo(10);
+		
+		</script>
+		
+		</div>
+		
+	<script type="text/javascript" src="factoryPattern.js"></script>
+    
+    <script type="text/javascript">
+	function cat(name) {
+		this.name = name;
+		this.talk = function(){
+			alert(this.name + " says meeeow!");
+		}
+	}
+	cat1 = new cat("felix");
+	cat1.talk();
+
+	cat2 = new cat("martin");
+	cat2.talk();
+
+    </script>
+	<script type ="type/javascript">
+	// Using prototype on prebuilt objects
+	// Adding additional functionality to the prebuilt Array object
+	
+	if(!Array.prototype.shift){ // if this method does not exist..
+	
+		Array.prototype.shift = function() {
+			firstElement = this[0];
+			this.reverse();
+			this.length = Math.max(this.length-1.0);
+			this.reverse();
+			return firstElement;
+		}
+	if(!Array.prototype.unshit) { // if this method does not exist..
+		
+		Array.prototype.unshift = function() {
+			this.reverse();
+				for(var i=arguements.length-1; i>=0; i--) {
+					this[this.length]=arguements[i]
+				}
+			this reverse();
+			return this.length
+		}
+	}
+	</script>
+	
+	<h2>Arrays</h2>
+	<p><a href="http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/">
+	nFriendly Web Development</a>
+	<p>Arrays are created using brackets []. var arr = []; (shortcut for 
+		new array).</p>
+		
+		arr[0] = "cat"; // adds to the array<br />
+		arr[1] = "mouse"; // adds to the array<br />
+		arr[2] = "elephant"; // adds to the array<br />
+		arr["human"] = "Bob"; // doesn't add to the array. <br />
+		// setting a string parameter adds to the underlying object?<br />
+		<br />
+		arr.length; // returns 3<br />
+		<br />
+	<p>Length is always 1 higher than the highest index, even if there are
+	fewer items in the array.</p>
+	<br />
+	var arr = [];<br />
+	arr.length; // returns 0<br />
+	<br />
+	arr[100] = "one is the lonliest number.";<br />
+	<br />
+	arr.length; // returns 101.<br />
+	<br />
+	<p>They are very similar to setting object properties except that
+	objects use a string while arrays use a number.</p>
+	
+	<p>Arrays length property tells how many items are in the array and is automatically 
+	updated when something is added or removed from the array.</p>
+
+	<p>You can manually set the length property, var myArray = [100]; </p>
+	
+	<p>Some built-in array functions:</p>
+	<ul>
+	<li>.sort()</li>
+	<li>.slice()</li>
+	<li>.push()</li>
+	<li>.pop()</li>
+	</ul>
+	
+	<p>These functions set arrays apart from array-like objects.</p>
+	
+	<h2>Array-Like Objects</h2>
+	<p>Array-like objects look like arrays, have numbered elements, and a length property.
+	They don't have any of the array functions and for-in loops don't work.</p>
+	
+	<p>Common Array-like objects:</p>
+	<ul>
+	<li>arguements variable</li>
+	<li>html node sets returned by document.getElementByTagName()</li>
+	<li>document.forms</li>
+	<li>Every other DOM method and property that gives a list of items</li>
+	</ul>
+	
+	document.forms.length; // returns 1; <br />
+	document.forms[0]; // returns a form element<br />
+	document.forms(", "); // returns a type error. This is not an array.
+	typeof document.forms; // returns "object"<br />
+	
+	<p> You can send any number of parameters you want to a javascript function. 
+	They are stored in array-like object named arguements.</p>
+	<script = "text/javascript">
+	function takesTwoParams(a,b) {
+		// arguments is an array-like variable inside all functions.
+		
+		alert ("you gave me " + arguments.length +" parameters");
+		
+		for(i=0; i < arguments.length; i++) {
+			alert("parameter " + i + " = " + arguments[i];
+		}
+	}
+	takesTwoParams("chickens", "peas");
+	</script>
+    </body>
+</html>
