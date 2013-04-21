@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Document</title>
+<script type="text/javascript" src="../jquery-1.3.2.js"></script>
+<script type="text/javascript">
+    $("document").ready(function() {
+	$("p:first").css("border", "3px solid red"); // select first p
+	$("p:last").css("border", "3px dotted orange"); // select last p
+	$("p:even").css("background-color", "yellow");
+	$("p:odd").css("background-color", "blue");
+	$(".a:first").css("border", "3px solid red");//first of a class
+	$(".b:even").css("border", "3px dotted purple"); // even b class
+	$("p:gt(1)").css("border", "3px solid green"); //p tags greater than index one. starts from 0
+	$("p:not (p:eq(2))").css("border", "3px solid purple"); 
+	// select p not equal to p index 2
+    });
+</script>
+<style type="text/css">
+.a { color: Navy; }
+.b { color: Maroon; }
+</style>
+</head>
+<body>
+	<ul id="list1">
+		<li class="a">item 1</li>
+		<li class="a">item 2</li>
+		<li class="b">item 3</li>
+		<li class="b">item 4</li>
+	</ul>
+<p class="a">This is paragraph 1</p>
+<p id="para1">This is paragraph 2</p>
+<p class="b">This is paragraph 3</p>
+<p id="para4" lang="en-us">This is paragraph 4</p>
+<h1>jQuery Selectors and Filters: Using Filters</h1>
+<p>Filters provide more fine-grained control over how elements are selected</p>
+<ul>
+<li>Basic Filters: Provide basic filtering (ex. first, last, even, odd numbered items in a returned set.</li>
+<li>Content: Filters a set of elements based on the content, like whether an element contains a particular string</li>
+<li>Visibility: Filters a set of elements using the visibility setting of each element as a test</li>
+<li>Attribute: Examines a given attribute on an element to determine whether it should be filtered out</li>
+<li>Child filters: select elements based on their relationship with their parent element</li>
+<li>Form: Provides specialized filters on form elements</li>
+</ul>
+
+<p>Basic filters: <br />
+:first - only the first instance of the selector's returned set.<br />
+:last - selects the last instance of the selector's returned set<br />
+:odd - odd numbered elements in the selectors returned set.<br />
+:eq(n) - filters out elements that are not positioned at the given index.<br />
+:gt(n) - elements past the given index.(greater than).<br />
+:lt(n) - includes before the index (less than).<br />
+:header - header elements<br />
+:animated - currently being animated <br />
+:not(selector) - includes elements that don't match the selector.<br />
+
+
+</body>
+</html>

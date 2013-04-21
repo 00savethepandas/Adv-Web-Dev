@@ -1,0 +1,761 @@
+b1d6b1
+
+BASIC JQUERY FILTERS
+<script type="text/javascript">
+    $("document").ready(function() {
+	$("p:first").css("border", "3px solid red"); // select first p
+	$("p:last").css("border", "3px dotted orange"); // select last p
+	$("p:even").css("background-color", "yellow");
+	$("p:odd").css("background-color", "blue");
+	$(".a:first").css("border", "3px solid red");//first of a class
+	$(".b:even").css("border", "3px dotted purple"); // even b class
+	$("p:gt(1)").css("border", "3px solid green"); //p tags greater than index one. starts from 0
+	$("p:not (p:eq(2))").css("border", "3px solid purple"); 
+	// select p not equal to p index 2
+    });
+</script>
+
+<script type="text/javascript">
+//    $("document").ready(function() {
+//    $("p").css("border","3px, solid, red");
+//	$(".a").css("boder", "3px dotted blue");
+//	$("p, li.b").css("border", "3px dotted yellow"); // hier. get p, list items with class b applied, go to css
+//	$("ul li.a").css("border", "3px solid orange"); //descendant operator. inside ul, look for li with class a on them
+//	$("ul +p"); // p next to ul: Next operator
+	$("#list1 ~ p"); // siblings get list1 and whatever paragraph siblings of list1
+	});
+</script>
+
+
+jQUERY SELECTORS AND FILTERS
+
+Attribute Filters
+[attribute]	includes elements in the result set id they have the specified attribute
+[attribute=value]	includes elements in the result set if they have the specified attribute and it has the given value
+[attribute!=value]	includes elements in the result set only if they have the specified attribute and it doesn't have the given value
+[attribute^=value]	includes elements that have the specified attribute
+[attribute$=value]	includes elements that have the specified attribute and ends with the specified value
+[attrFilter1][attrFilterN]	includes elements that match all of the specified attribute filters
+
+<script type="text/javascript">
+    $("document").ready(function() {
+//  $("p[class]").css("border", "3px solid red");
+//	$("p[id=para1]").css("border", "3px solid red");
+//	$("p[id^=para]").css("border", "3px solid red");
+//	$("p[class]").css("border", "3px solid red");	
+	$("p[id^=para][lang*=en-]").css("border", "3px solid red");
+	});
+	
+</script>
+
+
+Child, Visibility Filters
+CONTENT FILTERS
+:contains(text)	Filters the selection to only include elements that contain the text string
+:empty Filters the selection to only include empty elements.
+:has(selector)	matched elements that contain at least one element that has specified selector
+:parent	matches all elements that are parents (ie they contain at least one other element, including text)
+
+VISIBILITY FILTERS
+:visible	filters the selection to only include visible elements
+:hidden		filters the selection to only include hidden elements
+
+CHILD FILTERS
+:nth-child(index) or (even) or (odd) or (equation)
+matches elements at the index or even odd increments or who match an equation of the form Xn+M (2n or 3n+1)
+:first-child	matches elements who are the first child of their parent
+:last-child		matches elements who are the last child of parent
+:only-child		matches only child of parent
+
+<script type="text/javascript">
+    $("document").ready(function() {
+//	$("p:contains(3)").css("border", "3px solid red");
+//	$(":contains(3)").css("border", "3px solid red");
+//	$("li:contains(3),p:contains(3)").css("border", "3px solid red");
+//	$("p:parent").css("border", "3px solid red");
+//	$("ul:has(li[class=a])").css("border", "3px solid red");
+	// only select the the ul that has an li with a class a
+	$("ul li:nth-child(3)").css("border", "3px solid red");
+	// look for li that's the 3rd child in ul
+//	$("ul li:last-child").css("border", "3px solid red");
+
+//	$("ul li:nth-child(2n)").css("border", "3px solid red");
+	//selects every other one. operates not on 0, starts at one.
+	$("ul li:nth-child(3n)").css("border", "3px solid blue");
+    });
+</script>
+
+FORM SELECTORS AND FILTERS
+- These selectors for form elements
+- They work like other selectors but start with a colon(:) like a regular filter.
+
+:input	finds all input select textarea and button elements
+:text	finds all text elements
+:password	finds all password elements
+:radio	finds all radio button elements
+:checkbox	finds all checkbox elements
+:submit	finds all submit elements
+:reset	finds all reset elements
+:image	finds all image elements
+:button finds all button elements
+:file	finds all file upload elements
+
+FILTERS
+- perform additional filtering of form element sush as whether items are checked, selected or enabled.
+
+:enabled	matches all enabled form elements
+:disabled	all disabled form elements
+:checked	checked radiobuttons and boxes
+:selected	selected form elements
+
+<script type="text/javascript">
+    $("document").ready(function() {
+	    $("document").ready(function() {
+	//		$("form :input").before("INPUT: ");
+	//		$("form :text").before("TEXT: ");
+	//		$("form :text:enabled").before("Enabled: ");
+	//		$("form :checked").before("checked");
+			$("form :checkbox:checked").before("checked");
+		});
+    });
+</script>
+
+TRAVERSING DOCUMENTS
+FUNCTION/PROPERTY
+.size(), .length	the number of elements in the jquery  result set
+.get()			returns an array of all matched DOM elements. Useful of you need to operate on the DOM elements themselves instead of using build-in jQuery functions
+.get(index)		access a single matched DOM element at a specified index in the matched set.
+.find(expression)	searches for descendent elements that match the specified expression.
+.each(fn)	execute a function within the context of every matched element.
+
+<script type="text/javascript">
+    $("document").ready(function() {
+//	alert("There are " + $("p").length + " <p> elements");
+//	alert("There are " + $("p").size() + " <p> elements");
+//	var elems = $('li').get();
+//	alert("There are " + elems.length + " <li> tags");
+//	alert($('li').get(0)); // retrieves the object @ index 0
+	// find li class b items
+//	$("ul").find("li.b").css("border", "3px solid red");
+	var leftMargin = 0;
+	var border = 3;
+	$("p").each(function() {
+		$(this).css("border", border + "px solid red");
+		$(this).css("margin-left", leftMargin);
+		border += 2;
+		leftMargin += 10;
+	});
+ });
+</script>
+
+UNDERSTANDING STATEMENT CHAINING
+- chain multiple functions together to perform several operations in one line of code.
+
+$(selector).fn1().fn2().fn3();
+
+ANNOTATING PAGE LINKS
+<script type="text/javascript">
+    $("document").ready(function() {
+		$("a[href$=.pdf]").after("<img src='images/small_pdf_icon.gif' align='absbottom'/>"); 
+		// get all a hrefs that end with pdf
+		// align with absolute bottom.
+    });
+</script>
+
+MANUPULATING CONTENT
+- create new content to dynamically add into the page
+- jQuery has functions for creating, copying, deleting and moving content around, as well as wrapping page content in other content.
+- cross browser support for working with css
+- create new HTML content, you pass a string containing new html to the $()function:
+
+	var newHeader = $("<h1>My New Header</h1>";
+	var myString = "<h1>My New Header<h1>";
+	var newHeafer = $(myStr);
+	
+- you can also use html() and text() methods to get and set content.
+
+FUNCTION
+html()	Returns the HTML content of the first matched element
+html(newcontent)	Sets the HTML content of every matched element
+text()	Returns the text content of the first matched element
+- text will change the <> into html and not print out html.
+text(newtext)	Sets the text content for all the matched elements
+
+<script type="text/javascript">
+    $("document").ready(function() {
+//		alert($("#list1").html()); // displays all li in alert box
+
+		// Replace #list1 with new li item
+//		$("#list1").html("<li>THis is a new list item</li>");
+		var newItem = $("<p>This is a new paragraph</p>");
+			// Change the contents of that paragraph
+			//$('#para2').html(newItem.html()); 
+			$("p:last").text("This is the last paragraph");		
+    });
+</script>
+
+MANIPULATING ATTRIBUTES
+- To inspect or change the value of attribute on elements, use attr functions
+
+FUNCTION
+attr(name)	Accesses property on the first matched elements. This method makes it easy to retrieve a property value from the first matched element. If the element does not have an attribute with such a name, undefined is returned.
+
+att(properties)	Sets a series of attributes on all matched elements using an object notation syntax. This is the best used for setting large numbers of properties at once. 
+	- $("img").attr({src: "/images/hat.gif",
+	  title: "jQuery", alt: "jQuery Logo"});
+
+attr(key,value)	Sets a single property to a value on all matched elements
+
+attr(key,fn)	Sets a single property to a computed value on all matched items. Instead of supplying a string value, a function is provided that computes the value of the attribute.
+
+removeAttr(name)	Removes the name attribute from all matched elements.
+
+<script type="text/javascript">
+    $("document").ready(function() {
+//		$("a").attr("target", "_blank"); //find all take all anchors
+		//open all links in new windows.
+
+		// Removed href
+//		$("a").removeAttr("href");
+		
+		// set as properties attribute
+		$("img").attr({src:"images/Spring.jpg", alt: "Spring"});
+		// changed image to another one
+    });
+</script>
+
+INSERTING CONTENT USING JQUERY
+- functions for inserting content into a document both before and after existing page elements.
+
+FUNCTIONS
+.append(content)	Appends content to the inside of every matched element
+.appendTo(selector)	Appends all of the matched elements to another, .specified, set of elements
+.prepend(content)	Prepends content to the inside of every matched element
+.prepend(selector)	prepend to elements of another specified set of elements
+.after(content)		Inserts content after each matched element
+.before(content)		Inserts content before each of the matched elements
+.insertAfter(selector)	Insert all of the matched elements after another .specified set of elements
+.insertBefore(selector)	Inserts all the matched elements before another, .specified set of elements.
+
+<script type="text/javascript">
+    $("document").ready(function() {
+//	$("p:last").append(" with some content appended");
+//	$("p").append(" with some content appended");
+//	$("p:first").append(" with some content appended");
+//	$("p").prepend("Hello! ");
+	
+	// append and prepend to manipulate the DOM tree
+//	$("p:last").append("p:first");
+	// prepend last to first.
+	$("p:last").prependTo("p:first");
+    });
+</script>
+
+WRAPPING, REPLACING AND REMOVING CONTENT
+- jQuery can wrap existing content in the page, replace content, copy content and remove it.
+
+FUNCTIONS
+wrap(html)	Wraps each matched element with the specific HTML content
+wrap(element)	Wraps each matched element with the specified element
+wrapAll(html)	Wraps all the elements in the matched set with the specified HTML content
+wrapInner(html)	Wraps the inner child content of each matched element (including text nodes) with a DOM structure
+replaceWith(content)	Replaces all matched elements with the specified HTML or DOM elements
+replaceAll(selector)	Replace elements matched by the specified selector with the matched elements
+empty()		Removes all child nodes from the set of matched elements
+remove()	Removes all matched elements from the DOM
+clone()	Clone matched DOM elements and selects the clones
+clone(bool)	Clone matched DOM elements and all their event handlers, and select the clones. Passes a boolean arguement
+
+<script type="text/javascript">
+    $("document").ready(function() {
+//	$("p").wrap("<div style = 'color:red'/>");
+//	$("p").wrap("<div style = 'border: 3px solid red'>");
+	$("ul").empty();	
+    });
+</script>
+<style type="text/css">
+.a { color: Navy; }
+.b { color: Maroon; }
+</style>
+
+WORKING WITH CSS
+- provide easy cross browser access for setting properties and working with positioning and sizing information
+- css() function allows you to retrieve and set css styles for a set of matched elements
+
+FILTER
+css(name)	returns the value for the named css property for the first matched element
+-	Sets the CSS properties of every matched element using an object-notation syntax:
+		var cssObj = {
+			'background-color' : '#add',
+			'font-weight' : '',
+			'color' : 'rgb(0,40,244)'}
+			$(this).css(cssObj);
+
+css(property,value)	Sets a single style property to a value on all matched elements. If a number is provided, it is automatically converted into a pixel value, with the following exceptions: z-index, font-weight, opacity, zoom, and line-height
+
+- provides a set of functions for working with css classes on page elements
+- classes can be easily added, removed, toggled and detected.
+
+CSS FUNCTIONS
+addClass(class)	Adds the specified class(es) to each of the set of matched elements
+hasClass(class)	Returns true if the specified class is present on at least one of the set of matched elements
+removeClass(class)	Removes all the specified class(es) from the set of matched elements
+toggleClass(class)	Adds the specified class if it is not present, removes the specified class if it is present
+toggleClass(class,switch)	Adds the specified class is the switch is true, removes the specified class if the switch is false.
+
+POSITIONING FUNCTIONS
+- CSS positioning functions provide cross browser support for figuring out the position of elements
+
+CSS FUNCTIONS
+offset()	Gets the current offset of the first matched element, in pixzels, relative to the document
+
+offsetParent()	Returns a jQuery collection with the positioned parent of the first matched element
+
+position()	Gets the top and left position of an element relative to its offset parent
+
+scrollTop()	Gets the scroll top offset of the first matched element
+
+scrollTop(val)	Sets the scroll top offset to the given value on all matched elements
+
+scrollLeft()	Gets the scroll left of the first matched element
+
+scrollLeft(val)	Sets the scroll left offset to the given value on all matched elements
+
+WORKING WITH CSS SIZING INFORMATION
+- To retrieve cross-browser sizing information for elements, use the jQuery size related CSS functions
+
+CSS FUNCTIONS
+height()	gets current coomputed pixel height of 1st matched element
+height(val)	sets css heigh of every matched element
+width()		gets current computed pixel, width of the 1st matched element
+width(val)	sets the css width of every matched element
+
+innerHeight()	Gets the inner height (excluding the border and including the padding) for the 1st matched element
+
+innerWidth()	gets inner width (except boder and including padding) for 1st matched element
+
+outerHeight()	gets outter height (incl border and incl padding) for 1st match. If margin argument is true, then margin values are also included.
+
+outerWidth(margin)	Gets the outer width (includes border and padding by default) for the first matched element. if the margin arguement is true, then margin values are also included.
+
+JQUERY EVENTS
+Provides mechanisms for working with events that is simpler than relyin on the DOM.
+- Abstracts away the differences between browser implementations
+- works with sets of elements by default.
+- Makes it easy to assign event handlers to groups of elements by using selectors and filters.
+- Binding/Unbinding:Allows events to be wired up and torn down in a cross browser way.
+- Unified Event Object: Provides an event object that exposes the most common properties in a cross browser way.
+- Convenience Features: Provides functions that encapsulates common event features and cross-browser helper routines.
+
+BINDING AND UNBINDING EVENTS
+- Events are connected to and disconnected from elements using the bind() and unbind() functions
+	&(selector).bind(event, data, handler)
+	$(selector).unbind(event,handler)
+
+BIND() PARAMETER
+event -	Defines the event that you want to be bound to for each element in the selector's result set. Possible values are blur, focus, load, resize, scroll, unload, beforeunload, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, keyup, error.
+
+data - Optional. Defines a pieave of data that will be passed to the handler function when the event happens and the handler function is called.
+
+hander - Specifies the function that will handle the event
+
+UNBIND() PARAMETER
+event - Defines the event that you want to be disconnected for each element in the selector's result set.
+
+handler - Specifies the handler function that was defined to handle the event
+
+
+<script type="text/javascript">
+        $(function() {
+			$("#evtTarget").bind("mouseover", highlight);
+			$("#evtTarget").bind("mouseleave", highlight);
+			
+			//Click handler will do the same thing
+			$("#evtTarget").bind("click", function(){
+				$("#evtTarget").unbind("mouseover", highlight);
+				$("#evtTarget").unbind("mouseleave",highlight);
+				$("#evtTarget").html("<p>You turned off highlight</p>");
+			});
+		});
+		// functions always take an event handler object
+		// don't need the evt but there for 
+		function highlight(evt) {
+			$("#evtTarget").toggleClass("highlighted");
+		
+		}
+    </script>
+
+CONVENIENT EVENT HELPER METHODS
+- several "helper" functions can perform common event-related tasks
+
+$(selector).click(fn)
+$(selector).hover(fnOver, fnOut)
+$(selector).toggle(fn1, fn2, fn3, fn4...)
+
+FUNCTION
+click(fn)	- a shortcut for defining a click function handler. There are also shortcuts for: blur, change, dblclick, error, focus, keydown, keypress, keyup, load, mousedown, mouseenter, mouseleave, mousemove, mouseout, mouseover, mouseup, resize, scroll, slelect, submit, unload.
+
+hover(fnOver, fnOut)	- Helper funciton for hover behavior. fnOver is the function to call when the mouse enters, fnOut for when the mosue leaves.
+
+toggle(fn1, fn2, fn3, fn4, ...)		- helper function for implementing toggling behavior. jQuery will call each function on every other click, starting with fn1, then fn2, then fn3, etc.
+
+    <script type="text/javascript">
+        $(function() {
+			$("#evtTarget").hover(highlight, highlight);
+			$("#evtTarget").toggle(fnClick1, fnClick2);
+		});	
+		function highlight(evt){
+			$("#evtTarget").toggleClass("highlighted");
+		}
+		function fnClick1(evt){
+		$("#evtTarget").html("CLick!");
+		}
+		function fnClick2(evt) {
+		$("#evtTarget").html("Click 2");
+		}
+    </script>
+
+USING THE JQUERY EVENT OBJECT
+- event handling issues across browsers
+- jQuery event object smooths differences and provides a single object with the most important properties.
+
+FUNCTION
+type	- Type of the event ("click, e.g.)
+
+target 	- Element that issued the event
+
+data	- Data passed to the bind function
+
+pageX, pageY	- coordinates of mouse when event happened, relative to document.
+
+result	- value returned by the last handler function
+
+timestamp	- time when event occurred.
+
+preventDefault()	- prevents the browser from executing the 
+default action
+
+isDefaultPrevented()	- returns whether preventDefault() was ever called on this project.
+
+stopPropagation()	- Stop the bubbling of an event to parent elements
+
+isPropagationStopped()	- Returns whether stopPropagation()  was ever called on this project.
+
+<script type="text/javascript">
+        $(function() {
+			$("div").click(function(evt){
+				$(this).html("pageX: " + evt.pageX + ", pageY: " + evt.pageY + ", type: " + evt.type + ", target: " + evt.target);
+			});
+        });
+    </script>
+    <style type='text/css'>
+    .normal {
+        width:300px;
+        height:200px;
+        background-color: Silver;
+        font-size:18pt;
+        margin:5pt 5pt 5pt 5pt;
+    }
+    </style>
+
+MISCELLANEOUS JQUERY EVENT FUNCTIONS
+- for a couple of specialized tasks, jQuery provides some miscellaneous functions
+	$(selector).one(type, data, handler)
+	$(selector).trigger(event, data)
+	$(selector).triggerHandler(event, data)
+
+FUNCTION
+one(type,data,handler)	- Works the same as bind(), but the event handler is only ever executed one time for each matched element
+
+trigger(event,data)	- triggers an event on every matched element. This will also cause the default action of the browser to be executed. For example, passing 'click' to the trigger() function will also cause the browser to act as though the item were clicked.
+
+triggerHandler(event, data)	- Triggers all bound event handlers on an element (for a specific event type) withouth executing the browser's default actions, bubbling, or live events. Only works on the first matched element in the result set for selector.
+
+<script type="text/javascript">
+        $(function() {	// onload handler
+			$("div").one("click", function(evt){
+					$(this).css({background: "red", cursor: "auto"});
+			});
+        });
+    </script>
+	
+STRIPING EVEN/ODD ELEMENTS
+<script type="text/javascript">
+    $(function() {
+		$("#theList tr:even").addClass("stripe1");
+		$("#theList tr:odd").addClass("stripe2");
+		$("#theList tr").hover(
+			function(){
+				$(this).toggleClass("highlight");
+			},
+			function(){
+				$(this).toggleClass("highlight");
+			}
+		);
+    });
+</script>
+<style type="text/css">
+th,td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #000000;
+}
+tr {
+	border: 1px solid gray;
+}
+td {
+	width:200px;
+	padding:3px;
+}
+th {
+	background-color:#D2E0E8;
+	color:#003366
+}
+table {
+    border: 1pt solid gray;
+}
+.clickable {
+	cursor:pointer;
+}
+.stripe1 {
+	background-color: #e8e8ff;
+	color: #000;
+}
+.stripe2 {
+	background-color: #fff;
+}
+.highlight {
+	background-color: #b1d6b1;
+	color: #fff;
+	font-weight: bold;
+}
+</style>
+
+JQUERY ANIMATION
+- supplies basic animation and effects function that perform common visual effects
+	a. show and hide elements
+	b. fading elements in and out
+	c. moving elements around on the screen
+- you can use the basic animation function to easily build your own animation effects
+
+Showing and Hiding Page Elements:
+FUNCTION	
+show()		- Displays each of the set of matched elements, if they are hidden.
+
+show(speed,callback)	- shows all matched elements using a graceful animation. Fires an optional callback after completion.
+
+hide(speed,callback)	- Hides all matched elements using graceful animation. Fires an optional callback after completion
+
+toggle()	- Toggles displaying each of the set of matched elements
+
+toggle(switch)	- Toggles displaying each of the set of matched elements based upon the switch (true shows all elements, flase hides all elements)
+
+toggle(speed,callback)	- toggles displaying each of the set of matched elements using a gracefuls animation and firing an optional callback after completion.
+
+FADING ELEMENTS IN AND OUT
+- Elements can be faced in or our completely or to a predetermined opacity level
+- The speed of the fade can be specified as either a string ("slow", "normal", or "fast") or a millisecond duration.
+
+FUNCTION
+fadeIn(speed, callback)	- Fades in all matched elements by adjusting their opacity and firing an optional callback after completion
+
+fadeOut(speed, callback)	- Fades out all matched elements by adjusting their opacity to 0 and then setting display to "none" and firing an optional callback after completion
+
+fadeTo(speed, opacity, callback)	- Fades the opacity of all matched elements to a specified opacity and fires an optional callback after completion.
+
+    <script type="text/javascript">
+        $(function() {
+            $("#fadein").click(function() {
+                $("#theDiv").fadeIn("normal");
+            });
+            $("#fadeout").click(function() {
+                $("#theDiv").fadeOut(4000, function(){
+				alert("Done fading out")});
+            });
+            $("#fadeto3").click(function() {
+                $("#theDiv").fadeTo("slow", 0.3);
+            });
+            $("#fadeup").click(function() {
+                $("#theDiv").fadeTo("slow", 1.0);
+            });
+        });
+    </script>
+
+SLIDING ELEMENTS
+- The sliding effects is another way to reveal page elements in jQuery.
+- jQuery provides functions for sliding elements up or down, as well as toggling the slide animation
+
+FUNCTION
+slideDown(speed, callback)	- Reveals all, matched elements by adjusting their height and firing an optional callback after completion
+
+slideUp(speed, callback)	- Hides all matched elements by adjusting their height and firing an optional callback after completion
+
+SlideToggle(speed, callback)	- Toggles the visibility of all matched elements by adjusting their height and firing an optional callback after completion
+
+<script type="text/javascript">
+        $(function() {
+            $("#slideup").click(function() {
+                $("#theDiv").slideUp(4000, function(){
+					alert("slide complete");
+				});
+            });
+            $("#slidedown").click(function() {
+                $("#theDiv").slideDown("normal");
+            });
+            $("#toggle").click(function() {
+                $("#theDiv").slideToggle("slow");
+            });
+        });
+    </script>
+
+CREATING CUSTOM ANIMATIONS
+- To create custom animation for many properties on page elements, call the animate() function
+- To stop animations in progress, call the stop() function
+
+FUNCTION
+animate(params, duration, easing, callback)	- Creates a custom animation
+	a. params: the properties on the elements to animate
+	b. duration: the number of milliseconds the animation should take.
+	c. easing: the type of easing function to use (linear or swing)
+	d. callback: the function to call when the animation is complete.
+	
+animate(params,options)	- Creates a custom animation
+	a. params: the properties to animate
+	b. options: set of options for the animation to take
+
+stop()	- Stops all the currently running animations on all the specified elements.
+
+    <script type="text/javascript">
+        $(function() {
+            $("#right").click(function() {
+                $("#theDiv").animate({ width: "500px" }, 1000);
+            });
+            $("#text").click(function() {
+                $("#theDiv").animate({ fontSize: "24pt" }, 1000);
+            });
+            $("#toggle").click(function() {
+                $("#theDiv").animate({ left: "500" }, 1000, "swing");
+            });
+        
+            $("#multiple").click(function() {
+                $("#theDiv").animate({ width: "500px", fontSize: "24pt", left: "500" }, 1000, "linear");
+            });
+		});
+    </script>
+    <style type="text/css">
+        div#theDiv {
+            position:relative;
+            width: 250px;
+            height: 180px;
+            margin: 10px;
+            padding: 20px;
+            background: cyan;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+        p, span {
+            font-size: 16pt;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Animating an Element</p>
+    <div id="theDiv">Animate Me</div>
+    <button id="right">Grow Right</button>
+    <button id="text">Big Text</button>
+    <button id="toggle">Move Div</button>
+	<button id="multiple">Everything</button>
+</body>
+
+IMAGE ROTATOR
+    <script type="text/javascript">
+	$(function() {
+		setInterval("rotateImages()", 2000);
+		});
+		
+		function rotateImages(){
+			// which is current, which one is next.
+			var curPhoto = $("#photoShow div.current");
+			var nxtPhoto = curPhoto.next(); // gets next sibling.
+			if (nxtPhoto.length == 0) // if the next photo doesn't exist
+				nxtPhoto = $('#photoShow div:first'); // get the first
+			curPhoto.removeClass('current').addClass('previous');
+			nxtPhoto.css({opacity:0.0}).addClass('current').animate({opacity:1.0}, 1000, function() { // moves to the top and fades in
+				curPhoto.removeClass('previous'); 
+				// call back function removes class and puts it at the bottom
+			});
+		}
+	
+    </script>
+<style type="text/css">
+#photoShow {
+    height:400px;
+    width:400px;
+}
+#photoShow div {
+    position:absolute; <!-- stacks photos ontop of eachother-->
+    z-index: 0;
+}
+#photoShow div.previous {
+    z-index: 1;
+}
+#photoShow div.current {
+    z-index: 2;
+}
+</style>
+</head>
+<body>
+    <h1>
+        jQuery-based Image Rotator</h1>
+    <div id="photoShow">
+        <div class="current">
+            <img src="images/Grass.jpg" alt="Photo Gallery" width="400" height="400" class="gallery" />
+        </div>
+        <div>
+            <img src="images/Leaf.jpg" alt="Photo Gallery" width="400" height="400" class="gallery" />
+        </div>
+        <div>
+            <img src="images/Spring.jpg" alt="Photo Gallery" width="400" height="400" class="gallery" />
+        </div>
+        <div>
+            <img src="images/Water.jpg" alt="Photo Gallery" width="400" height="400" class="gallery" />
+        </div>
+    </div>
+
+	
+INTRODUCTION TO JQUERY UI LIBRARY
+Provides a prebuild set of functionality that gives your pages a polished professional look and feel.
+
+1. Interactions:
+	- draggable
+	- droppable
+	- resizable
+	- selectable
+	- sortable
+2. Widgets:
+	- Accordia
+	- Datepicker
+	- Progressbar
+	- Dialog
+	- Slider
+	- Tabs
+3. Effects:
+	- Add class
+	- Remove Class
+	- Toggle Class
+	- Switch Class
+	- Hide
+	- Show
+	- Toggle
+	- Color Animation
+
+JQUERYUI.COM
+jQuery UI Library
+- Accordian
+	
+JQUERY THEMEROLLER
+- jQueryui.com/Themeroller
